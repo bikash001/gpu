@@ -1,0 +1,15 @@
+#! /bin/bash
+#PBS -o outputfile.log
+#PBS -e errorfile.err
+#PBS -l cput=800:00:00
+mkdir -p $HOME/jobs 
+tpdir=`echo $PBS_JOBID | cut -f 1 -d .`  
+tempdir=$HOME/work/job$tpdir  
+mkdir -p $tempdir  
+cd $tempdir  
+cp -R $PBS_O_WORKDIR/* .  
+make
+./transpose
+mv ../job$tpdir $HOME/jobs/.
+
+ 
