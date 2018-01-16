@@ -9,7 +9,7 @@ mkdir -p $tempdir
 cd $tempdir  
 cp -R $PBS_O_WORKDIR/* .  
 make
-./transpose
+./main
 mv ../job$tpdir $HOME/jobs/.
 
  
